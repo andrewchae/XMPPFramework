@@ -160,6 +160,10 @@
 **/
 @property (assign, getter = isPopulating, readonly) BOOL populating;
 
+/**
+ * The initial roster has been received by client and populated.
+**/
+@property (assign, readonly) BOOL hasRoster;
 
 /**
  * Manually fetch the roster from the server.
@@ -328,6 +332,13 @@
 - (void)clearAllUsersAndResourcesForXMPPStream:(XMPPStream *)stream;
 
 - (NSArray *)jidsForXMPPStream:(XMPPStream *)stream;
+
+- (void)getSubscription:(NSString **)subscription
+                    ask:(NSString **)ask
+               nickname:(NSString **)nickname
+                 groups:(NSArray **)groups
+                 forJID:(XMPPJID *)jid
+             xmppStream:(XMPPStream *)stream;
 
 @optional
 
